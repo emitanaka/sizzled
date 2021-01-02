@@ -1,0 +1,16 @@
+
+url: https://sizzled.emitanaka.org
+
+home:
+  title: Bla bla
+  description: Bla bla
+
+template:
+  opengraph:
+    twitter:
+      creator: "@emitanaka"
+      site: "@MonashEBS"
+      card: summary_large_image
+  params:
+    bootswatch: united
+    ganalytics: G-PZVPM35TDE

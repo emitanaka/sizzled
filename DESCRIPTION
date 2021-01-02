@@ -1,0 +1,23 @@
+Package: sizzled
+Title: Create experimental designs for experiments that require sample size calculation
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Emi",
+           family = "Tanaka",
+           role = c("aut", "cre"),
+           email = "dr.emi.tanaka@gmail.com",
+           comment = c(ORCID = "0000-0002-1455-259X"))
+Description: This package uses some foundational aspects of edibble package but has extra functionality to support experiments that don't have a fixed structure, i.e.requiring a sample size calculation.
+License: GPL3 + file LICENSE
+Encoding: UTF-8
+Language: es
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
+Imports: 
+    magrittr,
+    edibble,
+    rlang
+URL: http://sizzled.emitanaka.org, https://github.com/emitanaka/sizzled
+BugReports: https://github.com/emitanaka/sizzled/issues
+Remotes: emitanaka/edibble
