@@ -11,7 +11,7 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](h
 
 The aim of sizzled package is to use some foundational aspects of
 edibble package but include extra functionality to support experiments
-that don’t have a fixed structure, i.e.requiring a sample size
-calculation.
+that initially have an unknown structure, i.e. requiring calculation for
+sample size for some units.
 
 (WIP) There is not much to see here.
