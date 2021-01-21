@@ -90,6 +90,47 @@
 
 <p>The aim of sizzled package is to use some foundational aspects of edibble package but include extra functionality to support experiments that initially have an unknown structure, i.e. requiring calculation for sample size for some units.</p>
 <p>(WIP) There is not much to see here.</p>
+<p>Below is not implemented.</p>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://edibble.emitanaka.org/">edibble</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://sizzled.emitanaka.org">sizzled</a></span><span class="op">)</span>
+<span class="va">out</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://edibble.emitanaka.org/reference/start_design.html">start_design</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="https://edibble.emitanaka.org/reference/set_trts.html">set_trts</a></span><span class="op">(</span>treat <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"placebo"</span>, <span class="st">"vaccine"</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+  <span class="fu">set_unit</span><span class="op">(</span>person <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grDevices/plotmath.html">symbol</a></span><span class="op">(</span><span class="st">"person"</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="https://edibble.emitanaka.org/reference/allocate_trts.html">allocate_trts</a></span><span class="op">(</span><span class="va">treat</span> <span class="op">~</span> <span class="va">person</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="https://edibble.emitanaka.org/reference/randomise_trts.html">randomise_trts</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="https://edibble.emitanaka.org/reference/serve_table.html">serve_table</a></span><span class="op">(</span><span class="op">)</span>
+
+<span class="co"># trying different sample sizes, </span>
+<span class="co"># output here is a list</span>
+<span class="va">out</span> <span class="op">%&gt;%</span> 
+  <span class="fu">set_symbols</span><span class="op">(</span>person <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">40</span>, <span class="fl">100</span>, <span class="fl">200</span><span class="op">)</span><span class="op">)</span>
+
+<span class="co"># standard sample size calculator</span>
+<span class="co"># non-vectorised version</span>
+<span class="va">out</span> <span class="op">%&gt;%</span> 
+  <span class="fu">set_symbols</span><span class="op">(</span>person <span class="op">=</span> <span class="fu">siz</span><span class="op">(</span>power <span class="op">=</span> <span class="fl">80</span>,
+                           sig_level <span class="op">=</span> <span class="fl">0.05</span>,
+                           alternative <span class="op">=</span> <span class="st">"two.sided"</span>,
+                           effect <span class="op">=</span> <span class="fl">3</span>,
+                           target_group <span class="op">=</span> <span class="va">treat</span><span class="op">)</span><span class="op">)</span>
+
+<span class="co"># vectorised version</span>
+<span class="va">out</span> <span class="op">%&gt;%</span> 
+  <span class="fu">set_symbols</span><span class="op">(</span>person <span class="op">=</span> <span class="fu">sizz</span><span class="op">(</span><span class="va">...</span><span class="op">)</span><span class="op">)</span>
+
+<span class="co"># proportion version</span>
+<span class="va">out</span> <span class="op">%&gt;%</span> 
+  <span class="fu">set_symbols</span><span class="op">(</span>person <span class="op">=</span> <span class="fu">sizp</span><span class="op">(</span><span class="va">...</span><span class="op">)</span><span class="op">)</span>
+
+<span class="co"># one that relies on other unit structures, etc</span>
+<span class="va">out</span> <span class="op">%&gt;%</span> 
+  <span class="fu">set_symbols</span><span class="op">(</span>person <span class="op">=</span> <span class="fu">sizzz</span><span class="op">(</span><span class="va">...</span><span class="op">)</span><span class="op">)</span>
+
+<span class="co"># add more z to have other variations, but more z usually means more</span>
+<span class="co"># complex structure</span></code></pre></div>
+<p>One shouldn’t sizzle too much lest you overcook your edibble design.</p>
+<p>The sizzling sound also could be the sound of the statistician silently boiling in anger when told to do yet another sample size calculation from their non-statistical colleague. Beware of that sizzling statistician.</p>
 </div>
   </div>
 
