@@ -23,7 +23,7 @@ library(edibble)
 library(sizzled)
 out <- start_design() %>% 
   set_trts(treat = c("placebo", "vaccine")) %>% 
-  set_unit(person = symbol("person")) %>% 
+  set_units(person = symbol("npeople")) %>% 
   allocate_trts(treat ~ person) %>% 
   randomise_trts() %>% 
   serve_table()
@@ -31,28 +31,28 @@ out <- start_design() %>%
 # trying different sample sizes, 
 # output here is a list
 out %>% 
-  set_symbols(person = c(40, 100, 200))
+  set_symbols(npeople = c(40, 100, 200))
 
 # standard sample size calculator
 # non-vectorised version
 out %>% 
-  set_symbols(person = siz(power = 80,
-                           sig_level = 0.05,
-                           alternative = "two.sided",
-                           effect = 3,
-                           target_group = treat))
+  set_symbols(npeople = siz(power = 80,
+                            sig_level = 0.05,
+                            alternative = "two.sided",
+                            effect = 3,
+                            target_group = treat))
 
 # vectorised version
 out %>% 
-  set_symbols(person = sizz(...))
+  set_symbols(npeople = sizz(...))
 
 # proportion version
 out %>% 
-  set_symbols(person = sizp(...))
+  set_symbols(npeople = sizp(...))
 
 # one that relies on other unit structures, etc
 out %>% 
-  set_symbols(person = sizzz(...))
+  set_symbols(npeople = sizzz(...))
 
 # add more z to have other variations, but more z usually means more
 # complex structure
