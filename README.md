@@ -64,3 +64,5 @@ The sizzling sound also could be the sound of the statistician silently
 boiling in anger when told to do yet another sample size calculation
 from their non-statistical colleague. Beware of that sizzling
 statistician.
+
+See this [video](https://www.youtube.com/watch?v=Hz1fyhVOjr4&ab_channel=RunProgramRun) about the sizzling statistician 😂
